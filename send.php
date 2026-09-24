@@ -3,7 +3,8 @@
 header('Content-Type: application/json; charset=utf-8');
 
 $to = 'info@builtflix360.co.uk';
-$smtpPass = 'Automating098@'; // password of the info@builtflix360.co.uk mailbox (hPanel > Emails)
+@include __DIR__ . '/mail-config.php'; // defines $smtpPass (gitignored)
+if (empty($smtpPass)) { error_log('send.php: mail-config.php missing'); http_response_code(500); echo '{"ok":false}'; exit; }
 
 // Minimal authenticated SMTP send through Hostinger (plain mail() gets silently dropped or spam-filtered).
 function smtp_send($user, $pass, $to, $subject, $headers, $body) {

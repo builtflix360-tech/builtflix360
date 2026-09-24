@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /send.php
+Disallow: /mail-config.php
+
+Sitemap: https://builtflix360.co.uk/sitemap.xml
